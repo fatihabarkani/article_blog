@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{# affichage de la route magique ( donc qui n'est pas un onglet mais plutot une route vers les articles magique ( avec "magique comme argument dans l'url) #}
+{% block title %}afficher des articles par argument{% endblock %}
+
+{% block body %}
+
+<div class='art_magique'>
+   <h1>Les Articles Magiques</h1>
+    {% for article in articles %}
+    <article>
+        <a href='{{ path('article_detail', {id: article.Id}) }}'><h2>{{ article.getTitre() }}</h2></a>
+    </article>
+    {% endfor %}
+</div>
+
+{% endblock %}

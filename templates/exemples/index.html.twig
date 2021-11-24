@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ExemplesController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+{# Affichage des valeurs du tableau #}
+    <div class="affichage">
+        <h4>Tableau : longueur {{tableau2|length}}</h4>
+        <ul>
+            {% for val in tableau2 %}
+            <li>{{val}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{# affichage pair et impair du tableau #}
+    <div class="affichage-pair-et-impair-du-tableau">
+        <h4>affichage pair du tableau</h4>
+        <ul>
+            {% for val in tableau2 %}
+                {% if val is even %}
+                <li>{{val}}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul>
+        {% for val in tableau2 %}
+            {% if val is odd %}
+            <li>{{val}}</li>
+            {% endif %}
+        {% endfor %}
+        </ul> 
+    </div>
+
+{# affichage 1ere lettre en maj #}
+    <div class="affichage-1ere-lettre-en-maj">
+        <h4>affichage 1ere lettre en maj</h4>
+            {% for item in tableau %}
+            {{ item|capitalize }}
+                {% endfor %}
+    </div>
+
+
+{# affichage 1er element du tableau #}
+
+    <div class="affichage-1er-élément-du-tableau">
+        <h4>affichage 1er élément du tableau</h4>
+            {{tableau|first}}
+    </div>
+
+{# affichage val max #}
+
+    <div class="affichage-val-max-du-tableau">
+        <h4>affichage val max du tableau</h4>
+            {{max(tableau2)}}
+    </div>
+
+{# affichage des valeurs aléatoires du tableau #}
+
+    <div class= "affichage-aléatoire">
+        <h4>Affichage des valeurs aléatoires</h4>
+        {{random(tableau)}}
+    </div>
+
+{# affichage du lien vers une autre page #}
+ {#     <div class= "linkPage">
+        <h4>Lien vers la page vote</h4>
+        <a class ="navbar-brand" href="{{ path ('vote', {number: '1'})}}">Lien vers la page vote</a>
+    </div>
+#}
+
+{# affichage de la date #}
+    <div class= "Date">
+        <h4>Date d'aujourd'hui</h4>
+        {{ "now"|date('F d, Y') }}
+    </div>
+</div>
+{% endblock %}

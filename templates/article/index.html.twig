@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{# affichage de la page articles #}
+{% block title %}Page la liste des articles{% endblock %}
+
+{% block body %}
+
+
+<div class='art_list'>
+   <h1>Les Articles</h1>
+    <!--pour chaque article afficher son nom avec le lien vers le detail de l'article-->
+    {% for article in articles %}
+    <article>
+        <a href='{{ path('article_detail', {id: article.Id}) }}'><h6>{{ article.titre() }}</h6></a>
+    </article>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+  

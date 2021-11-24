@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{# gérer le nom de l'onglet ( v.exercice) #}
+{% block title %}Detail article{% endblock %}
+
+{# gérer le contenu, ce bloc remplace le bloc body dans le parent (base.html.twig) #}
+{% block body %}
+    <h3>Affichage de l'article avec son ID: {{article.id}}</h3>
+    <p>Titre: {{article.titre}}</p>
+    <p>Contenu: {{article.contenu}}</p>
+    <p>Date de création: {{article.DateCreation.format('d-m-Y')}} </p>
+    <h5>Votes: <span id="nombre_votes"> {{votes}}</span></h5>
+    <button id="vote_plus" class="btn btn-outline-dark">+</button>
+    <button id="vote_moins" class="btn btn-outline-dark">-</button>
+
+{% endblock %}
